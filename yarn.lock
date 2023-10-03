@@ -8999,6 +8999,7 @@ __metadata:
     react-hook-form: ^7.41.5
     react-refresh: ^0.14.0
     react-router-dom: ^6.8.1
+    react-table: ^7.8.0
     recharts: ^2.5.0
     stream-browserify: ^3.0.0
     style-loader: ^3.3.1
@@ -27293,7 +27294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-table@npm:^7.7.0":
+"react-table@npm:^7.7.0, react-table@npm:^7.8.0":
   version: 7.8.0
   resolution: "react-table@npm:7.8.0"
   peerDependencies:

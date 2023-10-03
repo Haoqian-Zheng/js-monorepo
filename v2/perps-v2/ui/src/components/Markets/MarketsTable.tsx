@@ -1,4 +1,5 @@
 import { TableContainer, Table, Thead, Tr, Tbody, Flex, Text } from '@chakra-ui/react';
+import { useTable, useSortBy } from 'react-table';
 import { MarketsTableLoading } from './MarketsTableLoading';
 import { useMarkets } from '../../hooks';
 import {
@@ -17,6 +18,14 @@ import { calculateSkew } from '../../utils';
 export const MarketsTable = () => {
   const { data, loading, error } = useMarkets();
 
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
+    {
+      columns,
+      data,
+    },
+    useSortBy
+  );
+
   return (
     <>
       <TableContainer
@@ -30,7 +39,7 @@ export const MarketsTable = () => {
           borderSpacing: 0,
         }}
       >
-        <Table bg="navy.700">
+        <Table bg="navy.700" {...getTableProps()}>
           <Thead>
             <Tr>
               <TableHeaderCell>Market</TableHeaderCell>
@@ -42,7 +51,7 @@ export const MarketsTable = () => {
               <TableHeaderCell>24H Volume</TableHeaderCell>
             </Tr>
           </Thead>
-          <Tbody>
+          <Tbody {...getTableBodyProps()}>
             {loading && (
               <>
                 <MarketsTableLoading />
